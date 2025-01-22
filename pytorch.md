@@ -8,9 +8,15 @@ There is a class of define-then-run frameworks (TensorFlow, Caffe etc) which fir
 
 # What is the main idea?
 
+Present a machine learning library with several design principles to balance speed and ease of use, favouring ease of use.
+
+Pythonic programming style (imperative, so under full control of user) for all deep learning workflow (not just the layers, but also optimisers, dataloader). Eager (easier debugging; no waiting for compilation). To still boost performance, PyTorch uses C++ core (fast; also avoids GIL; also allows interoperability by creating and using bindings), having separate control and dataflow, overlapping of execution of Python code on CPU and operations on GPU (saturate GPU), abstracts away CPU-GPU synchronisation. Custom allocator which bypasses calling CUDA APIs, maintains one pool of memory for every CUDA stream and is incrementally built up.
 
 # What are the key results?
 
+Demonstration that PyTorch does asynchronously execute dataflow on CPU and GPU. Demonstration that the custom allocator works as intended (incrementally build up memory pool and reuses it).
+Overall speed of PyTorch on some benchmarks vs existing define-then-run and define-by-run frameworks; PyTorch competitive "within 17% of fastest framework" (6.3).
+Received well by the research community (296 ICLR 2019 submissions with PyTorch).
 
 # What are the main limitations of this paper?
 
