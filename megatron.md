@@ -12,6 +12,10 @@ ZeRO-3
 
 Suggested PTD-P. Novel interleaved pipelining schedule
 
+Metric is throughput per GPU. Obtain scaling graph by training GPT of the appropriate sizes.
+
+Investigated many dimensions.
+
 
 ### What are the key results?
 
@@ -21,6 +25,12 @@ Implemented using PyTorch, NCCL for communication between devices, optimisations
 
 Measured end-to-end training throughput of 163 teraFLOP/s per GPU, aggregated throughput of 502 petaFLOP/s on GPT model with 1 trillion parameter, mixed precision. Facilitate practical training time of 3 months.
 
+Superlinear scaling to 3072 A100 GPUs. Provided empirical training time estimates and model.
+
+Scales gracefully, meaning when more GPUs are used, the utilisation per GPU decreases less compared to ZeRO-3.
+
+Demonstrated that the using of both parallelisms together work better than singularly.
+
 Some guidance:
 - Interactions between parallelisms: pipeline model parallelism must be used for larger models. Tensor model aprallelism useful within a multi-GPU server.
 - Schedule used for pipeline parlalelism has impact on amount of communication, pipeline bubble size, memory used to store activations
@@ -28,9 +38,9 @@ Some guidance:
 - Distributed training is computationally intensive: use fast interconnects.
 - Heuristics work well in practice.
 
-
 ### What are the main limitations of this paper?
 
+Evaluation is not very fair since ZeRO-3 was evaluated without model parallelism.
 
 ### Why did this paper have an impact?
 
