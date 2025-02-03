@@ -11,7 +11,7 @@ versioning and application-assisted conflict resolution".
 
 ### What is the main idea?
 
-The authors defined Strong Eventual Consistency as a special case of eventual consistency (updates delievered at a correct replica will eventually be delivered to all correct replica) which satisfies strong convergence (correct replicas that delivered the same updates have equivalent state i.e. query operations on them produce the same result). They then formulated two equivalent sufficiency conditions (state-based and op-based CRDT) for the strong convergence property; and they guide the design of distributed systems.
+The authors defined Strong Eventual Consistency as a special case of eventual consistency (updates delivered at a correct replica will eventually be delivered to all correct replica) which satisfies strong convergence (correct replicas that delivered the same updates have equivalent state i.e. query operations on them produce the same result). They then formulated two equivalent sufficiency conditions (state-based and op-based CRDT) for the strong convergence property; and they guide the design of distributed systems.
 
 ### What are the key results?
 
