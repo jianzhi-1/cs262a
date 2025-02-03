@@ -15,7 +15,7 @@ The authors defined Strong Eventual Consistency as a special case of eventual co
 
 ### What are the key results?
 
-Definitions, proving of sufficiency conditions for SEC and theoretical framework. Proving certain classes of objects fall under CRDT.
+The key results are mainly the theoretical formalism of state-based and op-based CRDT and their equivalence, and showing that many objects fall under one of them (and therefore the other). Examples introduced were integer vectors, counters, U-Set, map, log, directed graphs (which are common data structures).
 
 ### What are the main limitations of this paper?
 
