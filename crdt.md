@@ -6,13 +6,12 @@ Establishing a middle ground between strong consistency (enforces a global total
 
 ### How was this problem solved previously?
 
-Ad-hoc approaches, brittle and error-prone.
-Concurrency anomalies of Amazon Shopping Cart
+Eventual consistency was adopted for most applications. They used ad-hoc approaches, brittle and error-prone. For example, Amazon's Dynamo (2007) sacrifices consistency under certain failure scenarios to achieve high level of availability, with ad-hoc approaches being "object
+versioning and application-assisted conflict resolution".
 
 ### What is the main idea?
 
 The authors defined Strong Eventual Consistency as a special case of eventual consistency (updates delievered at a correct replica will eventually be delivered to all correct replica) which satisfies strong convergence (correct replicas that delivered the same updates have equivalent state i.e. query operations on them produce the same result). They then formulated two equivalent sufficiency conditions (state-based and op-based CRDT) for the strong convergence property; and they guide the design of distributed systems.
-
 
 ### What are the key results?
 
