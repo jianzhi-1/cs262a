@@ -6,7 +6,7 @@ A consensus algorithm that is easier to be understood compared to Paxos and also
 
 ### How was this problem solved previously?
 
-Previous solutions are Paxos or extensions of Paxos. Those solutions that implemented Pxos were proprietary (Chubby, Spanner). Paxos is fundamentally symmetrically P2P, which made theoretical sense because one would usually not distinguish a node (e.g. a leader) so as to prevent hierarchical failures. However, because of this, Paxos became harder to understand, since there are more ways that different nodes can be inconsistent with one another. 
+Previous solutions are Paxos or extensions of Paxos. Those solutions that implemented Paxos were proprietary (Chubby, Spanner). Paxos is fundamentally symmetrically P2P, which made theoretical sense because one would usually not distinguish a node (e.g. a leader) so as to prevent hierarchical failures. However, because of this, Paxos became harder to understand, since there are more ways that different nodes can be inconsistent with one another. 
 
 ### What is the main idea?
 
