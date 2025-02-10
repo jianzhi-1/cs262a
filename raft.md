@@ -10,24 +10,19 @@ Previous solutions are Paxos or extensions of Paxos. Those solutions that implem
 
 ### What is the main idea?
 
-The nodes can be classified into three classes (not necessarily disjoint): proposers, acceptors and learners. A proposer first send a prepare message with a unique ID _n_. An acceptor EITHER does not respond at all OR respond with a promise not to accept any proposals less than that and with the highest value _v_ it has accepted. The proposer then sends _(n, max v)_. Essentially, monotonicity is preserved in both first and second argument. After this procedure when a value is finally chosen (i.e. accepted by a majority of the acceptors), a distinguished learner (which all acceptors relay their accepting behaviours to) will relay this message to all other learners. 
-
-State machine replication is achieved by treating each command in the cluster as an instance of the consensus algorithm. The proposals are what the command should be, and the outcome is that all learners learn the same command. Missing values in the sequence of commands can be treated as no-op. This ensures that all nodes execute the same sequence of transitions and hence end in the same states deterministically.
+The main idea is to have a leadership system, followed by a set of invariants, and a principle to keep the system independent from time (synchronisation is not necessary) and understandable. The central problem is again state machine replication, where each node has a log and state machine. Firstly, a leader is elected. Then, clients only interact the leader, and log entries flow unidirectionally from the leader to the followers. Communications take place via RPC (AppendEntry and InstallSnapshot). By the specification of the process, several invariants are maintained (Leader Append Only, Leader Completeness, Log Matching, State Machine Safety). The details are presented, such as snapshotting for log compaction (and a possible violation to the principle of strong leadership), randomised backoff for possible reelections, and cluster membership change via a two-phase process (where the intermediate phase is called joint consensus). Finally, an evaluation on the understandability of the Raft algorithm was done on university students.
 
 ### What are the key results?
 
-Disregarding rare events (e.g. failure of leader, system start up), Paxos consensus algorithm is optimal (phase 2 has minimum possible cost). Safety is prioritied: two nodes will "never disagree on the value chosen" (11).
+The main result is a summary of a correct and safe consensus algorithm, that is easier to understand and for a system designer to build. The presentation of the paper is oriented towards a programmer who is implementing the cluster. Another result is that Raft is deemed more understandable than Paxos based on statistical tests.
 
 ### What are the main limitations of this paper?
 
-Points that are unclear during the paper: nodes are supposed to be aware of one another's role (e.g. a proposer must be able to send to group of acceptors and know the total number of acceptors to ascertain majority). Progress is not guaranteed: might be slow (e.g. using timeout to elect the leader i.e. the distinguished proposal) and worst case is if a single leader cannot be elected. 
+While it is good that the evaluation of understandability was done, it felt a bit arbitrary - I felt that the growing popularity of Raft was enough evidence that it is taking off. It would also be good if the authors point out similarities between Raft and Paxos. If they are both correct consensus algorithms, what is the spectrum between these two different solutions?
 
 ### Why did this paper have an impact?
 
-Paxos can be regarded as a fundamental building block for all distributed applications. It is particularly important when durability is concerned, e.g. for databases. Many variants of Paxos were subsequently made and Raft came after Paxos. The design of Paxos was optimal in the sense the theoretical upper bound was proven (Fischer, Lynch, Patterson) and Paxos hit the upper bound.
+It is more understandable. It is surprising to me that Paxos took years to understand - but it seems plausible that programmers are more open to understanding a less-distributed approach (strong leader) that eliminates many edge cases for the sake of understanding, even if two solutions are both correct. Also, Raft has a number of open-source implementations, versus Paxos' more proprietary and hidden ones.
 
-### Own Notes
 
-Definitions:
-- Safety = consistency: two nodes will never disagree on the value chosen
-- State machine replication: convert an algorithm into a fault-tolerant, distributed version
+
