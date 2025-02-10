@@ -16,7 +16,7 @@ State machine replication is achieved by treating each command in the cluster as
 
 ### What are the key results?
 
-Disregarding rare events (e.g. failure of leader, system start up), Paxos consensus algorithm is optimal (phase 2 has minimum possible cost). Safety is prioritied: two nodes will "never disagree on the value chosen" (11).
+Disregarding rare events (e.g. failure of leader, system start up), Paxos consensus algorithm is optimal (phase 2 has minimum possible cost). Safety is prioritised: two nodes will "never disagree on the value chosen" (11).
 
 ### What are the main limitations of this paper?
 
