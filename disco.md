@@ -8,7 +8,7 @@ The problem is to develop modern operating systems to run efficiently on scalabl
 
 Previously, to deal with system software challenges of scalable shared-memory multiprocessors, one either (1) throw a large OS development effort at the problem (Hive, Hurricane, Cellular-IRIX) or (2) statically partition the machine and run multiple, independent OS that use distributed-system protocols to export a partial single-system image to the users (Sun Enterprise10000).
 
-There were many previous efforts along other axes:
+There were many previous efforts along the subproblems:
 - Adding a software layer: IBM's VM370
 - OS-structuring technique: Exokernel, Fluke, 
 - CC-NUMA memory management: IBM Ace, BBN Butterfly.
