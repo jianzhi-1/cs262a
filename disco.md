@@ -27,6 +27,7 @@ Simulated with realistic workloads. Overhead of virtualisation around 3% to 16% 
 
 ### What are the main limitations of this paper?
 
+Changes still need to be made to the hosted operating system to enable virtualised execution on the MIPS architecture. On ccNUMA machines, efficient communication and I/O are still highly important, and adding another level of indirection just adds to the overhead.
 
 ### Why did this paper have an impact?
 
