@@ -2,7 +2,7 @@
 
 ### What is the problem being solved?
 
-Developing modern operating systems to run efficiently on scalable shared-memory multiprocessors without a massive implementation effort.
+The problem is to develop modern operating systems to run efficiently on scalable shared-memory multiprocessors without a massive implementation effort. In general, it is to ease the development effort of software to keep up the pace with innovations in hardware.
 
 ### How was this problem solved previously?
 
@@ -13,11 +13,9 @@ There were many previous efforts along other axes:
 - OS-structuring technique: Exokernel, Fluke, 
 - CC-NUMA memory management: IBM Ace, BBN Butterfly.
 
-
 ### What is the main idea?
 
 Insert another layer of software between the hardware and operating system - acts like a virtual machine monitor that allows many commodity operating systems to efficiently cooperate and share resources with each other (1).
-
 
 ### What are the key results?
 
@@ -27,7 +25,7 @@ Simulated with realistic workloads. Overhead of virtualisation around 3% to 16% 
 
 ### What are the main limitations of this paper?
 
-Changes still need to be made to the hosted operating system to enable virtualised execution on the MIPS architecture. On ccNUMA machines, efficient communication and I/O are still highly important, and adding another level of indirection just adds to the overhead.
+The paper is too long. Changes still need to be made to the hosted operating system to enable virtualised execution on the MIPS architecture. On ccNUMA machines, efficient communication and I/O are still highly important, and adding another level of indirection just adds to the overhead.
 
 ### Why did this paper have an impact?
 
