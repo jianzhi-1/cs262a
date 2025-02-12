@@ -16,19 +16,15 @@ There were many previous efforts along other axes:
 
 ### What is the main idea?
 
-Insert another layer of software between the hardware and operating system - acts like a virtual machine monitor that allows many commodity operating systems to efficiently cooperate and share resources with each other (1).
-
+Xen: a x86 virtual machine monitor, allows multiple commodity operating systems to share conventional hardware in a safe and resource managed fashion, without sacrificing either performance or functionality. Idealised virtual machine abstraction, to which opering systems can be ported with minimal effort.
 
 ### What are the key results?
 
-A prototype system (Disco) targeting the Stanford FLASH shared-memory multiprocessor, combines commodity operating systems. A high-performance system software base. Minimises overhead of virtual machine, enhances resource sharing. Allows OS running on different virtual machines to be coupled using standard distribute system protocols such as TCP/IP and NFS.
-
-Simulated with realistic workloads. Overhead of virtualisation around 3% to 16% of uniprocessor workloasd. Methods to hide the NUMA-ness of the memory system, reduce execution time by 37%.
+Allows hosting up to 100 virtual machine instances simultaneously on modern server. Considerably outperform competing commercial and freely available solutions in a range of microbenchmarks and system-wide tests.
 
 ### What are the main limitations of this paper?
 
 
 ### Why did this paper have an impact?
 
-I think it just works well. 
 
