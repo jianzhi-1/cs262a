@@ -1,33 +1,25 @@
-# seL4
+# seL4 ()
 
 ### What is the problem being solved?
 
-A new approach for operating system implementation.
+The main problem is to tackle complete formal verification in a microkernel, by deriving a formal proof of its functional correctness. It is also to show that due to the size of microkernels, it is possible to guarantee the absence of bugs.
 
 ### How was this problem solved previously?
 
-Prior to Paxos, there was no general consensus algorithm. Raft came after Paxos.
+Previously, there were Secure Unix from UCLA and Provably Secure Operating System (PSOS). Those efforts found that verification were not feasible due to the state of tools at that time. Subsequently, KIT had an implementation proof for a kernel, although the kernel was assumed to be highly idealised. There were many other efforts and techniques (static analysis, model checking, shape analysis).
 
 ### What is the main idea?
 
-The nodes can be classified into three classes (not necessarily disjoint): proposers, acceptors and learners. A proposer first send a prepare message with a unique ID _n_. An acceptor EITHER does not respond at all OR respond with a promise not to accept any proposals less than that and with the highest value _v_ it has accepted. The proposer then sends _(n, max v)_. Essentially, monotonicity is preserved in both first and second argument. After this procedure when a value is finally chosen (i.e. accepted by a majority of the acceptors), a distinguished learner (which all acceptors relay their accepting behaviours to) will relay this message to all other learners. 
-
-State machine replication is achieved by treating each command in the cluster as an instance of the consensus algorithm. The proposals are what the command should be, and the outcome is that all learners learn the same command. Missing values in the sequence of commands can be treated as no-op. This ensures that all nodes execute the same sequence of transitions and hence end in the same states deterministically.
+The authors used an interactive, machine-assisted and machine-checked proof technique (2.3) with Isabell/HOL theorem prover. They designed a methodology, which they termed as "rapid kernel design and implmentation", that comprises 3 stages: abstract specification, executable specification, C implementation; each being a refinement of the previous one. Then, the proof was constructed and verified using Hoare triples, by verifying the postconditions after preconditions and command. They also took into account interrupts and exceptions. To make their lives easier, they specifically designed the microkernel to have functionalities that are easier to verify (non-preemptable execution, except at a few interrupt-points (3.5), event-based design to minimise invariants).
 
 ### What are the key results?
 
-Disregarding rare events (e.g. failure of leader, system start up), Paxos consensus algorithm is optimal (phase 2 has minimum possible cost). Safety is prioritised: two nodes will "never disagree on the value chosen" (11).
+The authors showed that a full, rigorous, formal verification is practical for OS microkernels with reasonable effort (2 person-year as opposed to 5 for previous efforts). The authors also listed their experience in the verification process and explained how that helped the design of the OS (such as using a non-preemptable event-based kernel, interrupt polling...) (7) without sacrificing performance.
 
 ### What are the main limitations of this paper?
 
-Points that are unclear during the paper: nodes are supposed to be aware of one another's role (e.g. a proposer must be able to send to group of acceptors and know the total number of acceptors to ascertain majority). Progress is not guaranteed: might be slow (e.g. using timeout to elect the leader i.e. the distinguished proposal) and worst case is if a single leader cannot be elected. 
+I think the main limitation is its specificity to the seL4 microkernel, as opposed to a more general microkernel framework. 
 
 ### Why did this paper have an impact?
 
-Paxos can be regarded as a fundamental building block for all distributed applications. It is particularly important when durability is concerned, e.g. for databases. Many variants of Paxos were subsequently made and Raft came after Paxos. The design of Paxos was optimal in the sense the theoretical upper bound was proven (Fischer, Lynch, Patterson) and Paxos hit the upper bound.
-
-### Own Notes
-
-Definitions:
-- Safety = consistency: two nodes will never disagree on the value chosen
-- State machine replication: convert an algorithm into a fault-tolerant, distributed version
+It redefined the "ultimate degree of trustworthiness" for an OS (7) and is currently the "world's most highly assured OS kernel", so it provides a good benchmark for performance and verifiability. It is also open-sourced. I also think that this paper would increase the attractiveness of the microkernel paradigm, since it showed microkernels are more feasible to be verified.
