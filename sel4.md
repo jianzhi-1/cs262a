@@ -10,7 +10,7 @@ Previously, there were Secure Unix from UCLA and Provably Secure Operating Syste
 
 ### What is the main idea?
 
-The authors used an interactive, machine-assisted and machine-checked proof technique (2.3) with Isabell/HOL theorem prover. They designed a methodology, which they termed as "rapid kernel design and implmentation", that comprises 3 stages: abstract specification, executable specification, C implementation; each being a refinement of the previous one. Then, the proof was constructed and verified using Hoare triples, by verifying the postconditions after preconditions and command. They also took into account interrupts and exceptions. To make their lives easier, they specifically designed the microkernel to have functionalities that are easier to verify (non-preemptable execution, except at a few interrupt-points (3.5), event-based design to minimise invariants).
+The authors used an interactive, machine-assisted and machine-checked proof technique (2.3) with Isabell/HOL theorem prover. They designed a methodology, which they termed as "rapid kernel design and implementation", that comprises 3 stages: abstract specification, executable specification, C implementation; each being a refinement of the previous one. Then, the proof was constructed and verified using Hoare triples, by verifying the postconditions after preconditions and command. They also took into account interrupts and exceptions. To make their lives easier, they specifically designed the microkernel to have functionalities that are easier to verify (non-preemptable execution, except at a few interrupt-points (3.5), event-based design to minimise invariants).
 
 ### What are the key results?
 
