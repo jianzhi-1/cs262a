@@ -18,7 +18,7 @@ The authors showed that a full, rigorous, formal verification is practical for O
 
 ### What are the main limitations of this paper?
 
-I think the main limitation is its specificity to the seL4 microkernel, as opposed to a more general microkernel framework. 
+I think the main limitation is its specificity to the seL4 microkernel, as opposed to a more general microkernel framework. Many OSes have been designed without verifiability in mind and I think people might be generally more concerned about verifying existing OSes than building more new ones. The success of this is also dependent on the potential of the microkernel framework.
 
 ### Why did this paper have an impact?
 
