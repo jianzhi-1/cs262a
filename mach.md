@@ -18,7 +18,7 @@ Firstly, several OSes have been successfully implemented in the microkernel fash
 
 ### What are the main limitations of this paper?
 
-I think the performance gains might not sufficient to convince developers/companies to pivot to a microkernel approach. I also think the paper's purpose might be to introduce the possible design pattern, rather than convince a broad takeup of this microkernel design, since the paper focused a lot on the implementation specifics.
+I think the performance gains might not sufficient to convince developers/companies to pivot to a microkernel approach. I also think the paper's purpose might be to introduce the possible design pattern, rather than convince a broad take up of this microkernel design, since the paper focused a lot on the implementation specifics.
 
 ### Why did this paper have an impact?
 
