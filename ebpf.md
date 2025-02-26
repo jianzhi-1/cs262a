@@ -14,7 +14,7 @@ The main idea is to allow dynamic programming capabilities directly into monolit
 
 ### What are the key results?
 
-The key result of the paper is to explain the design and implementation of the eBPF runtime in the Linux kernel, since eBPF has already been used in general. To summarise, the flow goes: user authors eBPF program -> compile to bpf format -> verifier -> generates a file descriptor to user space -> apply hook -> ... -> clean up.
+The key result of the paper is to explain the design and implementation of the eBPF runtime in the Linux kernel, since eBPF has already been used in general. To summarise, the flow goes: user authors eBPF program -> compile to bpf format -> verifier -> generates a file descriptor to user space -> apply hook -> ... -> clean up (4).
 
 ### What are the main limitations of this paper?
 
