@@ -19,6 +19,9 @@ Users can write programs, load them into kernel, attach them at designated hooks
 
 ### What are the main limitations of this paper?
 
+The main limitation lies with the verifier: it is difficult to ensure that the verifier itself is secure (11.3, 11.4). Also, the scalability of the verifier has also been brought into question (11.2). Therefore, the paper notes that eBPF is largely used only in trusted user model (11.5).
 
 ### Why did this paper have an impact?
+
+eBPF is very impactful because it acts as an add-on component to an otherwise monolithic system. The add-on capability allows applications to use it for data collection and telemetry. As such, it is used in next-generation networking (optimised performance, load-balancing), observability, and security functionality.
 
