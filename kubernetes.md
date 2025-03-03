@@ -6,23 +6,23 @@ Examining the best practices of designing a container management system, which t
 
 ### How was this problem solved previously?
 
-Previously, more machine oriented (e.g. data centers). Lower utilisation. One application on one machine.
+Previously, container management systems were more machine oriented with focus on the architectures and OSes of possibly inhomogeneous machines (as in data centers). The norm is one application per machine, which led to low utilisation.
 
 ### What is the main idea?
 
-Application-oriented infranstructure. Containers encapsulate the application environemtn -> shift management APis from machine-oriented to application oriented. Have a hermetic container image that encapsolates almost all of an application's dependeices into a package that can be deplohyed in tot the container. Nested containers (10) for easiness of development and robustness, composability and fine-grained resource isolation.
+The authors point out the trend of having application-oriented infrastructure, due to containers encapsulating the application environment, including almost all of an application's dependencies. The authors also noted the practical uses of nested containers (10) for easiness of development and robustness, composability and fine-grained resource isolation.
 
 ### What are the key results?
 
-Application developers don't need to worry about the details of machines and OSes (7); infrastructure team can flexibly roll out/upgrade OSes with minimal impact on applications; telemetry more oriented towards applications, improves introspection; (4) managemnet system can communicate information into containers such as resource limits etc.
+The result of this shift from machine to application oriented container management system meant that application developers need not worry about the details of machines and OSes (7); infrastructure can be flexibly rolled out with minimal impact on applications; telemetry can be more oriented towards applications for analysis; (4) management system can communicate more information (such as resource limits) into containers for better application metrics.
 
 ### What are the main limitations of this paper?
 
-Tension between containers and operating system kernel in resource isolation: containers cannot prevent interference in resources that the operating system kernel doesn't manage (4); also need a security layer (4)
+Containers do not completely isolate resource management: the paper pointed out that containers cannot prevent interference in resources that the operating system kernel doesn't manage (4). Also, containers might need a security layer. This means that the management system still has to deal with issues at the container-level.
 
-Configuration and dependency management.
+There are also much inefficiencies at the configuration level and with dependency management, which take up developer time.
 
 ### Why did this paper have an impact?
 
-Kubernetes is open source. Many application developers today use containers to deploy their applications. Also useful for datacenter workloads. In general, the better utilisation and resource isolation is appreciated by the developer community.
+Kubernetes is open-sourced. Many application developers today use containers to deploy their applications and do not worry about the underlying architecture/servers/OSes. It is also useful for datacenter workloads to achieve high utilisation. In general, the better utilisation and resource isolation properties are appreciated by the developer community.
 
