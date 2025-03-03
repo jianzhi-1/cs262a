@@ -10,7 +10,7 @@ Previously, more machine oriented (e.g. data centers). Lower utilisation. One ap
 
 ### What is the main idea?
 
-Application-oriented infranstructure. Containers encapsulate the application environemtn _> shift management APis from machine-oriented to application oriented. Have a hermetic container image that encapsolates almost all of an application's dependeices into a package that can be deplohyed in tot the container. Nested containers (10) for easiness of development and robustness, composability and fine-grained resource isolation.
+Application-oriented infranstructure. Containers encapsulate the application environemtn -> shift management APis from machine-oriented to application oriented. Have a hermetic container image that encapsolates almost all of an application's dependeices into a package that can be deplohyed in tot the container. Nested containers (10) for easiness of development and robustness, composability and fine-grained resource isolation.
 
 ### What are the key results?
 
@@ -22,6 +22,7 @@ Tension between containers and operating system kernel in resource isolation: co
 
 Configuration and dependency management.
 
-
 ### Why did this paper have an impact?
+
+Kubernetes is open source. Many application developers today use containers to deploy their applications. Also useful for datacenter workloads. In general, the better utilisation and resource isolation is appreciated by the developer community.
 
