@@ -14,7 +14,7 @@ The main idea is to delegate control over scheduling to the frameworks via a res
 
 ### What are the key results?
 
-Mesos was measured with respect to ramp-up time, job completion time, and system utilisation. It was also tested with different workloads. The authors presented a theoretical framework and showed that the utilisation achieved by Mesos was optimal for elastic framewors. Industrial usage showed that Mesos performs well in practice and data locality achieved nearly perfectly.
+Mesos was measured with respect to ramp-up time, job completion time, and system utilisation. It was also tested with different workloads. The authors presented a theoretical framework and showed that the utilisation achieved by Mesos was optimal for elastic frameworks. Industrial usage showed that Mesos performs well in practice and data locality achieved nearly perfectly.
 
 ### What are the main limitations of this paper?
 
