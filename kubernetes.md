@@ -6,7 +6,7 @@ Examining the best practices of designing a container management system, which t
 
 ### How was this problem solved previously?
 
-Previously, container management systems were more machine oriented with focus on the architectures and OSes of possibly inhomogeneous machines (as in data centers). The norm is one application per machine, which led to low utilisation.
+Previously, container management systems were more machine oriented with focus on the architectures and OSes of possibly inhomogeneous machines (as in datacenters). The norm is one application per machine, which led to low utilisation.
 
 ### What is the main idea?
 
