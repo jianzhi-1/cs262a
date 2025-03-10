@@ -6,11 +6,11 @@ The problem is to store structured data for various Google applications, while e
 
 ### How was this problem solved previously?
 
-Previous, there exists the Boxwood project, which is very similar to Bigtable but provided services at a lower level than what Google required. Also, it is not optimised for Google's internal applications. There were other efforts such as CAN, Chord, Tapestry, but those address more problems than what Google is concerned with (10).
+Previously, there exists the Boxwood project, which is very similar to Bigtable but provided services at a lower level than what Google required. Also, it is not optimised for Google's internal applications. There were other efforts such as CAN, Chord, Tapestry, but those address more problems than what Google is concerned with (10).
 
 ### What is the main idea?
 
-The assumption (validated empirically) is that most applications require only single-row transactions (9). Hence, the data model is such that data is maintained in lexigraphic order by row key and the row range (a.k.a. tablet) is dynamically partitioned (2). This allows for quick accesses to tablets without going through many machines. Two more dimensions (column, timestamps) are used for access controls and versioning. Bigtable follows the one-master design (master and many tablet servers). Relevant ideas are taken from distributed databases (B+ trees, distributed locking).
+The main assumption (validated empirically) is that most applications require only single-row transactions (9). Hence, the data model is such that data is maintained in lexiographic order by row key and the row range (a.k.a. tablet) is dynamically partitioned (2). This allows for quick accesses to tablets without going through many machines. Two more dimensions (column, timestamps) are used for access controls and versioning. Bigtable follows the one-master design (master and many tablet servers). Relevant ideas are taken from distributed databases (B+ trees, distributed locking).
 
 ### What are the key results?
 
