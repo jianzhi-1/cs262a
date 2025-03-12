@@ -22,5 +22,5 @@ The main limitation is possibly the high similarity between Chord and OceanStore
 
 ### Why did this paper have an impact?
 
-Chord solves a fundamental problem. Thus, it provides a very useful primitive that is feasible for a wide range of applications: coorperative mirroring, time-shared storage, distributed indices, large-scale combinatorial search (3). 
+Chord solves a fundamental problem. Thus, it provides a very useful primitive that is feasible for a wide range of applications: cooperative mirroring, time-shared storage, distributed indices, large-scale combinatorial search (3). 
 
