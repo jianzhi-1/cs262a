@@ -6,7 +6,7 @@ The problem is efficiently and scalably locate the node that stores a particular
 
 ### How was this problem solved previously?
 
-Most previous works have poorer scaling laws as they require nodes to be aware of most other nodes in the system (i.e. O(N) states per node). Chord only requires O(log n) states per node. There exists multiple applications and work such as DNS, Freenet, Ohaha, Globe, Plaxton, Pastry, CAN which differs from Chord by guarantees, application, system model. Chord's main selling point over them is that it handles scaling very gracefully (in terms of O(log N) states and lookups, ability to handle node arrival and departure), provable correctness and no extra constraints on the network (vs CAN, which assumes each node has a fixed O(d) state invariant of network size N).
+Most previous works have poorer scaling laws as they require nodes to be aware of most other nodes in the system (i.e. O(N) states per node). Chord only requires O(log N) states per node. There exists multiple applications and work such as DNS, Freenet, Ohaha, Globe, Plaxton, Pastry, CAN which differs from Chord by guarantees, application, system model. Chord's main selling point over them is that it handles scaling very gracefully (in terms of O(log N) states and lookups, ability to handle node arrival and departure), provable correctness and no extra constraints on the network (vs CAN, which assumes each node has a fixed O(d) state invariant of network size N).
 
 ### What is the main idea?
 
