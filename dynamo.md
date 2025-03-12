@@ -6,7 +6,7 @@ The problem is to achieve extremely high availability and reliability for a dist
 
 ### How was this problem solved previously?
 
-There were a lot of work done previously in P2P systems, distributed databases/file systems with various structures, guarantees etc. However, Amazon clearly does not use them because they have their own metric, which is to have extremely high availbility and reliability (must be able to handle network partitions); and are willing to sacrifice (under certain scenarios) consistency. 
+There were a lot of work done previously in P2P systems, distributed databases/file systems with various structures, guarantees etc. However, Amazon clearly does not use them because they have their own metric, which is to have extremely high availability and reliability (must be able to handle network partitions); and are willing to sacrifice (under certain scenarios) consistency. 
 
 ### What is the main idea?
 
