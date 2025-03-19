@@ -22,4 +22,4 @@ One limitation is the failure of the master node, in which the state of the map-
 
 ### Why did this paper have an impact?
 
-The simple programming model encompasses a lot of tasks. Google (and many other technology companies due to cloud computing) has access to the resources (a cluster of machines), so they can employ this model to generalise many tasks. It solves a pain point and saves many programming hours because no special-purposed scripts are required.
+The simple programming model encompasses a lot of tasks. In particular, blocks of map and reduce operators can be chained together. Google (and many other technology companies due to cloud computing) has access to the resources (a cluster of machines), so they can employ this model to generalise many tasks. It solves a pain point and saves many programming hours because no special-purposed scripts are required.
