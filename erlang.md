@@ -10,7 +10,7 @@ Many other programming languages do not satisfy key requirements for a robust sy
 
 ### What is the main idea?
 
-A new programming language Erlang (a pure message-passing, concurrent process-based language) and a design methodology and a set of libraries for building robust systems (OTP). Erlang is a concurrent oriented langauge (i.e. concurrency is provided by Erlang). Everything in Erlang is a fail-fast process and processes are strongly isolated (to limit the consequence of an error) and only communicate via message passing.
+A new programming language Erlang (a pure message-passing, concurrent process-based language) and a design methodology and a set of libraries for building robust systems (OTP). Erlang is a concurrent oriented language (i.e. concurrency is provided by Erlang). Everything in Erlang is a fail-fast process and processes are strongly isolated (to limit the consequence of an error) and only communicate via message passing.
 
 At the system level, software is organised into a hierarchy of tasks (2.3). To deal with errors, the general philosophy is just for a process to fail fast and let some other process do the error recovery (4.3).
 
