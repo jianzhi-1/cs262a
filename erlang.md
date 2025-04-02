@@ -16,7 +16,7 @@ At the system level, software is organised into a hierarchy of tasks (2.3). To d
 
 ### What are the key results?
 
-The author identified principles and abstractions for building fault-tolerant software systems, such as isolation and fail-fast processees. The author and team also implemented Erlang and its library modules, which a number of large commercially successful products use (e.g. Ericsson product (AXD301), which was even branded as the "most reliable" Ericsson product).
+The author identified principles and abstractions for building fault-tolerant software systems, such as isolation and fail-fast processes. The author and team also implemented Erlang and its library modules, which a number of large commercially successful products use (e.g. Ericsson product (AXD301), which was even branded as the "most reliable" Ericsson product).
 
 ### What are the main limitations of this paper?
 
