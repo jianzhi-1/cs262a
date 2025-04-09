@@ -2,7 +2,7 @@
 
 ### What is the problem being solved?
 
-Maximising hardware utility (in FLOPs) while also facilitating research-friendly programmability. The prior requires more static information, while dynamic languages (e.g. Python) are too unconstrained to enable optimised code generation
+The problem is to maximising hardware utilisation (in FLOPs) while also keeping ML research programming simple. To achieve the former, the compiler needs more static information. However, dynamic languages (e.g. Python), which are simple for programmers, are too unconstrained to enable optimised code generation.
 
 ### How was this problem solved previously?
 
@@ -11,6 +11,8 @@ Previously, systems provide function calls to a fixed set of hand-written, targe
 ### What is the main idea?
 
 The authors make the empirical observation that ML workloads are typically dominated by PSC subroutines, and thus use those as the unit of optimisation. PSCs consist of Numpy's numerical functions, Autograd's functions; hence they are very expressive and favourable for acceleration. JAX basically uses a XLA compiler infrastructure to generate optimised code for the PSCs. To compile a function, Jax traces it i.e. monitoring its execution once. It stores the signature to trace mapping in the trace cache in case it reencounters the same signature in the future.
+
+To use JAX, the programmer simply needs to wrap a PSC entry point with the JAX decorator.
 
 ### What are the key results?
 
