@@ -10,7 +10,7 @@ Previously, systems provide function calls to a fixed set of hand-written, targe
 
 ### What is the main idea?
 
-The authors make the empirical observation that ML workloads are typically dominated by PSC subroutines, and thus use those as the unit of optimisation. PSCs consist of Numpy's numerical functions, Autograd's functions; hence they are very expressive and favourable for acceleration. JAX basically uses a XLA compiler infrastructure to generate optimised code for the PSCs. To compile a function, Jax traces it i.e. monitoring its execution once. It stores the signature to trace mapping in the trace cache in case it reencounters the same signature in the future.
+The authors make the empirical observation that ML workloads are typically dominated by PSC subroutines, and thus use those as the unit of optimisation. PSCs consist of numpy's numerical functions, autograd's functions; hence they are very expressive and favourable for acceleration. JAX basically uses a XLA compiler infrastructure to generate optimised code for the PSCs. To compile a function, JAX traces it i.e. monitoring its execution once. It stores the signature to trace mapping in the trace cache in case it reencounters the same signature in the future.
 
 To use JAX, the programmer simply needs to wrap a PSC entry point with the JAX decorator.
 
