@@ -22,11 +22,11 @@ Triton is able to generate matrix multiplication implementations on par with cuB
 
 ### What are the main limitations of this paper?
 
-A critism is that this paper essentially built almost an entire compiler stack. One may wonder if all the previous efforts (e.g. compiler optimisations from LLVM, IR design) were able to be carried over.
+A criticism is that this paper essentially built almost an entire compiler stack. One may wonder if all the previous efforts (e.g. compiler optimisations from LLVM, IR design) were able to be carried over.
 
 ### Why did this paper have an impact?
 
-Since more novel and custom primitives are emerging, one no longer needs experts to carefully perform the code generation. It allows researchers to write programs that reach near-peak hardware utilisation with less programming effort. It also abstracts away the difficult part of CUDA programming - coalescing memory transfer from DRAM to maximise bankwidth usage, minimise shared SRAM bank conflict upon retrieval, and maximising ILP and TLP. 
+Since more novel and custom primitives are emerging, one no longer needs experts to carefully perform the code generation. It allows researchers to write programs that reach near-peak hardware utilisation with less programming effort. It also abstracts away the difficult part of CUDA programming - coalescing memory transfer from DRAM to maximise bandwidth usage, minimise shared SRAM bank conflict upon retrieval, and maximising ILP and TLP. 
 
 ### Own Notes:
 - Tile: a statically shaped multi-dimensional sub-array.
