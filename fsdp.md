@@ -12,11 +12,11 @@ Previously, the DDP (data distributed parallel) wrapper in PyTorch was used. How
 
 The main idea is that FSDP decomposes a model into smaller units and shards the model along those units across multiple GPUs. During training, the parameters were communicated on-demand before computations. After use, the non-local parameters are freed.
 
-Then, because FSDP is to be closely co-designed with PyTorch, there are many techniques such as deferred initialisation, optimisation of sharding strategies, communcation optimisations and memory management techniques (rate limiter) that are used to improve performance.
+Then, because FSDP is to be closely co-designed with PyTorch, there are many techniques such as deferred initialisation, optimisation of sharding strategies, communication optimisations and memory management techniques (rate limiter) that are used to improve performance.
 
 ### What are the key results?
 
-The results showed that the optimisation techniques worked as expected (Figure 6c). It also showed FSDP can acommodate models of different sizes and achieves performance similar to DDP in terms of TFLOPS/GPU, but managed to scale effortlessly to larger models when DDP met with OOM error. FSDP achieves 50-60% of GPU hardware utilisation on a GPU cluster.
+The results showed that the optimisation techniques worked as expected (Figure 6c). It also showed FSDP can accommodate models of different sizes and achieves performance similar to DDP in terms of TFLOPS/GPU, but managed to scale effortlessly to larger models when DDP met with OOM error. FSDP achieves 50-60% of GPU hardware utilisation on a GPU cluster.
 
 ### What are the main limitations of this paper?
 
