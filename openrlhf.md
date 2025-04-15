@@ -12,7 +12,7 @@ TRL also attempted merging the actor and critic models (basically restricting th
 
 ### What is the main idea?
 
-The goal is to allocate the four component models across multiple GPUs efficiently. The model scheduling is done using Ray, which does model placement and fine-grained orchestration (3.1). vLLM is used for efficient LLM inference and serving, and achieves faster generation than predecessor HydridEngine. DeepSpeed and Ray also does model merging and offloading strategies. Ray avoids excessive model splitting and model weights offloading, thus saving on GPU memory and reducing communication overhead. 
+The goal is to allocate the four component models across multiple GPUs efficiently. The model scheduling is done using Ray, which does model placement and fine-grained orchestration (3.1). vLLM is used for efficient LLM inference and serving, and achieves faster generation than predecessor HybridEngine. DeepSpeed and Ray also does model merging and offloading strategies. Ray avoids excessive model splitting and model weights offloading, thus saving on GPU memory and reducing communication overhead. 
 
 ### What are the key results?
 
