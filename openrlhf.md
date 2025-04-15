@@ -2,32 +2,25 @@
 
 ### What is the problem being solved?
 
-Ability to train reinforcement learning with human feedback (RLHF) models with sizes greater than that of a device.
-
-4 component models (actor, critic, reward, reference) must be allocated across multiple GPUs due to memory limit of GPU (< 80 GB).
+The problem is to be able to train reinforcement learning with human feedback (RLHF) models with sizes greater than that of a single GPU device. This is different from other machine learning fields because RLHF typically has four component models (actor, critic, reward, reference) which poses coordination challenges.
 
 ### How was this problem solved previously?
 
-Previously, 4 component models (actor, critic, reward, reference) colocated within a single device.
+Prior efforts, such as Transformer Reinforcement Learning (TRL), ColossalChat, DeepSpeed-Chat, colocate the four component models within a single device. 
 
-Merge actor-critic (at the application level). However, this requires changes to the model. Limited.
+TRL also attempted merging the actor and critic models (basically restricting the family of models). However, this requires changes to the model and also limits performance.
 
 ### What is the main idea?
 
-Redesigns model scheduling using Ray, vLLM and DeepSpeed, enabling training of models beyond 70 billion parameters. Integrates with Hugging Face Transformers, mixture of experts.
-
-4 component models (actor, critic, reward, reference) must be allocated across multiple GPUs due to memory limit of GPU (< 80 GB). Use Ray for model placement and fine-grained orchestration. Scheduler design allows flexible model merging and offloading strategies. 
+The goal is to allocate the four component models across multiple GPUs efficiently. The model scheduling is done using Ray, which does model placement and fine-grained orchestration (3.1). vLLM is used for efficient LLM inference and serving, and achieves faster generation than predecessor HydridEngine. DeepSpeed and Ray also does model merging and offloading strategies. Ray avoids excessive model splitting and model weights offloading, thus saving on GPU memory and reducing communication overhead. 
 
 ### What are the key results?
 
-Can do RLHF training of models with over 70B parameeters, by distributing models across GPUs via Ray and optimising efficiency leveraging vLLM. Implements multiple alignment algorithms. Seamless integration with HuggingFace provides out-of-the-box usability.
-
-Lower latency than DSChat (Table 2), 
-Analysis is that vLLM allows faster generation than predecessor Hybrid Engine. Ray avoids excessive model splitting and model weights offloading -> saves GPU memory and reduces communication overhead.
+OpenRLHF can do RLHF training for models with over 70B parameters. It achieves lower latency than the state-of-the-art DSChat (Table 2). The project also implements the popular alignment algorithms (RLHF DPO, rejection sampling) and integrates with Hugging Face Transformers, mixture of experts etc. 
 
 ### What are the main limitations of this paper?
-The main innovation seems to be using vLLM and Ray.
+
+The project's benefits seem to derive very much from Ray and vLLM and does not seem to have novel optimisations that added significant improvement. It also felt like the idea of the project lies in linking Ray and vLLM together. Perhaps the identification of the problem and the choice of these two major technologies is the difficult part?
 
 ### Why did this paper have an impact?
-
-Easy to use.
+The project is open-sourced and is easy to experiment with/use due to its comprehensive set of initial alignment policies and integration with Hugging Face.
