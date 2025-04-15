@@ -12,13 +12,13 @@ Traditional (i.e. non-neural network) frameworks (such as RLLib and RLLibFlow) e
 
 The main idea is to combine single-controller and multi-controller paradigms in a hybrid manner. The single-controller paradigm is used on the inter-node level to allow for flexible expression of various data dependencies and easy coordination of inter-node communication (i.e. low overhead). The multi-controller paradigm is used within intra-node computation to enhance computation efficiency. 
 
-The authors also provide a set of hierarchical APIs that encapsulate distributed compuation of different LLMs. This allows efficient operation orchestration to implement RLHF algorithms and flexible mapping of computation onto various devices.
+The authors also provide a set of hierarchical APIs that encapsulate distributed computation of different LLMs. This allows efficient operation orchestration to implement RLHF algorithms and flexible mapping of computation onto various devices.
 
 A 3D-HybridEngine is also designed for efficient execution of training and generation of the actor model (0 memory redundancy, reduced communication overhead).
 
 ### What are the key results?
 
-HybridFlow achieved 1.53x - 20.57x throughput (tokens/second) improvement when running various RLHF algorithms as compared to state-of-the-art baselines (DeepSpeed-Chat, OpenRLHF, NeMo-Aligner). The authors attribtuted this to the fact that HybridFlow executes generation, inference, and training by sharding the models with different parallelism strategies to fit various computation workloads.
+HybridFlow achieved 1.53x - 20.57x throughput (tokens/second) improvement when running various RLHF algorithms as compared to state-of-the-art baselines (DeepSpeed-Chat, OpenRLHF, NeMo-Aligner). The authors attributed this to the fact that HybridFlow executes generation, inference, and training by sharding the models with different parallelism strategies to fit various computation workloads.
 
 ### What are the main limitations of this paper?
 
