@@ -7,8 +7,6 @@ The problem is to allow larger batch sizes for LLM serving system (i.e. at infer
 
 ### How was this problem solved previously?
 
-Previous state of the art systems are FasterTransformer and Orca. 
-
 Previously, the KV cache of a request is stored in a pre-allocated, contiguous memory space (due to deep learning frameworks' requirements) with size equal to the request's maximum length. Thus, they suffer from internal and external memory fragmentation. Also, they cannot exploit opportunities for memory sharing during decoding algorithms (beam search) and autoregressive generation.
 
 ### What is the main idea?
@@ -22,7 +20,9 @@ During the attention computation, the PagedAttention kernel identifies and fetch
 PagedAttention achieved near zero waste in KV cache memory and allows for flexible sharing of KV cache from within and across requests (no graphs, but the result followed from the methodology). It improves throughput (using normalised latency as the metric (6.1)) of popular LLMs (ShareGPT, Alpaca) by 2-4x with similar level of latency compared to state-of-the-art systems (FasterTransformer, Orca). Accommodates longer sequences, larger models and more complex decoding algorithms. 
 
 ### What are the main limitations of this paper?
+
 I think the main limitation of vLLM is that it incorporates optimisations specifically designed for LLM inference (i.e. fixed on the transformer model). In that sense, it is taking a bet that the model is here to stay.
 
 ### Why did this paper have an impact?
+
 vLLM is open sourced. It is a very popular LLM serving system now and has gained industry traction. It also kind of maintained its dominance in the LLM serving system (with exception of RadixAttention).
