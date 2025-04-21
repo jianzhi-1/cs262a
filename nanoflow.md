@@ -12,11 +12,11 @@ Orca and vLLM were used originally for language model serving. However, when vie
 
 The main idea is to exploit intra-device parallelism by overlapping the usage of resources (compute, memory, network) within a single device through operation co-scheduling. NanoFlow splits requests into nano-batches at the granularity of operations. The nano-batches can be co-scheduled on the same device and thus enabling overlapping of compute-, memory-, and network-intensive operations. The most constrained resource will no longer underutilised.
 
-The device's functional units are partitioned across NanoFlow's operation-level pipeline. This allows simulatneous execution of different operations within each unit. 
+The device's functional units are partitioned across NanoFlow's operation-level pipeline. This allows simultaneous execution of different operations within each unit. 
 
 ### What are the key results?
 
-NanoFlow was evalauted on LLaMA-2-70B model and used practical workloads from ShareGPT, LMSys and Splitwise. It achieved 1.91x greater throughput compared to state-of-the-art serving systems (vLLM, DeepSpeed-FastGen, TensorRT-LLM). This is between 59% to 72% of optimal throughput.
+NanoFlow was evaluated on LLaMA-2-70B model and used practical workloads from ShareGPT, LMSys and Splitwise. It achieved 1.91x greater throughput compared to state-of-the-art serving systems (vLLM, DeepSpeed-FastGen, TensorRT-LLM). This is between 59% to 72% of optimal throughput.
 
 ### What are the main limitations of this paper?
 
@@ -24,4 +24,4 @@ The improvement is not as great as I expected, though it might be significant fo
 
 ### Why did this paper have an impact?
 
-The parameter search is done automatically, so the partitioning of the device's functional units is automated. NanoFlow can generalise easily to arbitrary models, since it looks at the graularity of operations. NanoFlow is also open-sourced.
+The parameter search is done automatically, so the partitioning of the device's functional units is automated. NanoFlow can generalise easily to arbitrary models, since it looks at the granularity of operations. NanoFlow is also open-sourced.
