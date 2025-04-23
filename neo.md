@@ -16,11 +16,11 @@ During inference, Neo takes in a partial query plan, predicts the best expected 
 
 ### What are the key results?
 
-The end result is the estabilishing of an end-to-end reinforcement learning system that is capable of building query execution plans that achieves equal or better performance compared to the state-of-the-art commercial optimisers (Oracle and Microsoft) on their own query execution engines (Figure 9). Furthermore, it also generalises to unseen queries (6.4).
+The end result is the establishing of an end-to-end reinforcement learning system that is capable of building query execution plans that achieves equal or better performance compared to the state-of-the-art commercial optimisers (Oracle and Microsoft) on their own query execution engines (Figure 9). Furthermore, it also generalises to unseen queries (6.4).
 
 ### What are the main limitations of this paper?
 
-Neo requires a priori knowledge about query rewrite rules to guarantee correctness (1). Also, as of writing, Neo is restricted to select-project-equijoin-aggregate queries. Then, there is a plethora of deep learning related limitations: (1) Neo does not yet generalise from one database to another. (2) Features are specific to a schema. (3) Neo still requires a tradiitonal query optimiser to bootstrap its learning process.
+Neo requires a priori knowledge about query rewrite rules to guarantee correctness (1). Also, as of writing, Neo is restricted to select-project-equijoin-aggregate queries. Then, there is a plethora of deep learning related limitations: (1) Neo does not yet generalise from one database to another. (2) Features are specific to a schema. (3) Neo still requires a traditional query optimiser to bootstrap its learning process.
 
 ### Why did this paper have an impact?
 
