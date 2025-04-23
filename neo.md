@@ -2,7 +2,7 @@
 
 ### What is the problem being solved?
 
-The problem to conduct end-to-end query optimisation with deep reinforcement learning techniques, with the intent of learning a policy that beats traditional heuristics while maintaining correctness and robustness.
+The problem is to conduct end-to-end query optimisation with deep reinforcement learning techniques, with the intent of learning a policy that beats traditional heuristics while maintaining correctness and robustness.
 
 ### How was this problem solved previously?
 
