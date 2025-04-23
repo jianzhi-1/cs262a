@@ -2,40 +2,29 @@
 
 ### What is the problem being solved?
 
-End-to-end query optimisation with deep reinforcement learning techniques.
+The problem to conduct end-to-end query optimisation with deep reinforcement learning techniques, with the intent of learning a policy that beats traditional heuristics while maintaining correctness and robustness.
 
 ### How was this problem solved previously?
 
-Leo, learns from its mistakes by adjusting its cardinality estimations over time. Still requires a human-engineered cost model, a hand-picked search strategy, and a lot of developer-tuned heuristics. Only improves its cardinality estimation model. Cannot optimiser its search straegy based on data. 
-
-DQ, ReJOIN use RL combined with traditional human-engineered cost models to automatically learn search strategies and explore the space of possible join orderings
-
+The traditional query optimiser is Selinger, which uses a dynamic programming approach. Then, we have a series of deep learning efforts. Firstly, we have LEO from IBM, which learns from its mistakes by adjusting its cardinality estimations over time. However, this still requires a human-engineered cost model, a hand-picked search strategy, and a lot of developer-tuned heuristics. Furthermore, it only improves its cardinality estimation model and cannot optimise its search strategy based on data. Then, we have DQ and ReJOIN which use RL combined with traditional human-engineered cost models to automatically learn search strategies and explore the space of possible join orderings. However, they focus on join orderings and are not end-to-end.
 
 ### What is the main idea?
 
-Given a set of query rewrite rules to ensure semantic correctness, Neo learns to make decisions about join order, operator, index selection. Neo optimisers these deicisons using reinforcement learning, tailoring itself to the user;s database instance and basing its decision on actual query altency.
+The main idea is to construct a deep learning pipeline that does query optimisation in an end-to-end fashion. To learn from data, the query trees and plans are featurised and inductive biases are captured via tree convolution. The authors also constructed row vectors as features to represent the query predicate semantics. In the pipeline, the authors used an expert (an existing commercial database query optimiser) to conduct learning from demonstration in order to overcome sample inefficiency. Correctness is checked using a set of query rewrite rules.
 
-Takes in a partial query plan, predicts the best expected runtime that could result from completing this partial plan. Neo uses its value network to perform a simple search over the query plan space to make decisions. Value-iteration until policy converged.
-
-Inductive bias to capture tree-structured query plans: tree convolution. Row vectors as features to represent the query prediate semantics automatically by using data from the underlying database. Learning from demonstration to overcome sample inefficiency.
-
+During inference, Neo takes in a partial query plan, predicts the best expected runtime that could result from completing this partial plan with guidance from the deep RL network. Value-iteration is performed until policy converged.
 
 ### What are the key results?
 
-End-to-end reinforcement learning system capable of building query execution plans. Generalises to unseen queries.
-
-Achieves similar or improved performance compared to state-of-the-art commercial optimisers (ORacle and Microsoft) on their own query execution engines. 
+The end result is the estabilishing of an end-to-end reinforcement learning system that is capable of building query execution plans that achieves equal or better performance compared to the state-of-the-art commercial optimisers (Oracle and Microsoft) on their own query execution engines (Figure 9). Furthermore, it also generalises to unseen queries (6.4).
 
 ### What are the main limitations of this paper?
 
-Requires a priori knowledge about query rewrite rules to guarantee correctness. Restrict Neo to select-project-equijoin-aggregate queries. Optiiser does not yet generalise from one database to another. Features are specific to a schema. Neo generalise to unseen queries, but not across databases (e.g. different schema). Still requires a tradiitonal query optimiser to bootstrap its learning process.
+Neo requires a priori knowledge about query rewrite rules to guarantee correctness (1). Also, as of writing, Neo is restricted to select-project-equijoin-aggregate queries. Then, there is a plethora of deep learning related limitations: (1) Neo does not yet generalise from one database to another. (2) Features are specific to a schema. (3) Neo still requires a tradiitonal query optimiser to bootstrap its learning process.
 
 ### Why did this paper have an impact?
 
-Produces query plans that beat state-of-the-art database query optimisers when executed in their own engine.
-
-I wonder if Neo is actually used? If not, why? It seems only to be a demonstration of ideas.
-
+Despite all the limitations, Neo produced query plans that beat state-of-the-art database query optimisers when executed on their own engine. It maximises performance and trades off generalisability. Neo also inspired a series of efforts in creating deep versions of database components (Bao, LLMSteer).
 
 ### Own Notes
 
