@@ -14,7 +14,7 @@ The main idea is to construct a query engine over the data for the purpose of re
 
 ### What are the key results?
 
-LOTUS's efficiency is evaluated through three diverse applications: fact-checking, extreeme multi-label classification, and search and ranking. In each of the applications, LOTUS achieves near state-of-the-art results with a few lines of code (due to its programmability) and few semantic operators (expressiveness of its programming model). For example, it improves accuracy over FacTool (factuality detection in generative AI) by 9.5%, offering 7-34x lower execution time. 
+LOTUS's efficiency is evaluated through three diverse applications: fact-checking, extreme multi-label classification, and search and ranking. In each of the applications, LOTUS achieves near state-of-the-art results with a few lines of code (due to its programmability) and few semantic operators (expressiveness of its programming model). For example, it improves accuracy over FacTool (factuality detection in generative AI) by 9.5%, offering 7-34x lower execution time.
 
 ### What are the main limitations of this paper?
 
