@@ -26,4 +26,4 @@ Another side note is that bugs can still occur (3.2).
 
 ### Why did this paper have an impact?
 
-HiStar is a UNIX-like system, appealing to familiarity. It also supports downstream applications such as an entirely untrusted login process, separation of data between virtual private networksm and privacy-preserving, untrusted virus scanners. 
+HiStar is a UNIX-like system, appealing to familiarity. It also supports downstream applications such as an entirely untrusted login process, separation of data between virtual private networks and privacy-preserving, untrusted virus scanners. 
