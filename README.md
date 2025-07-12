@@ -1,2 +1,5 @@
 # CS 262A
-Create a screen for fishing, allows the tracking of statistics of computer pixel, allowing data collection for humans to train on.
+### Advanced Topics in Computer Systems
+UC Berkeley Spring 2025, taught by Professor Ion Stoica
+
+A collection of paper reviews for CS262A.
